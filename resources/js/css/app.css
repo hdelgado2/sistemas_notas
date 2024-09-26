@@ -1,0 +1,19 @@
+.cargando {
+    width: 100%;height: 100%;
+    overflow: hidden; 
+    top: 0px;
+    left: 0px;
+    z-index: 10000;
+    text-align: center;
+    position:absolute; 
+    background-color: /*#FFFFFF*/ #fff;
+    opacity:0.9;
+    filter:alpha(opacity=40);
+  
+ }
+ .image{
+  margin-top: 200px
+ }
+ .modal-heigth{
+  max-height: 100% !important;
+ }

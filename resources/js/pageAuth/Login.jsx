@@ -3,6 +3,9 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import Config from '../Config'
 import AuthUser from './AuthUser'
 import axios from 'axios'
+import Loading from '../components/Loading'
+
+
 
 const Login = () => {
   const {getToken,setToken} = AuthUser()
@@ -11,7 +14,7 @@ const Login = () => {
   const [password, setPassword] = useState("")
   const [message,setMessage] = useState("")
   const navigate = useNavigate();
-  
+  const [Load, setLoad] = useState(false)
 
   useEffect(() => {
     if(getToken()){
@@ -23,19 +26,26 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault()
 
+    setLoad(true);
     await axios.get('/sanctum/csrf-cookie').then((response) => {
 
         Config.getLogin({name, email, password})
               .then(({data}) => {
                // console.log(data.token)
-                
                 if(data.success){
+                    
+                    
+                    
                     navigate('/admin')                
                     setToken(
                       data
                     )
+                    setLoad(false);
+
+
                 }else{
                     setMessage(data.message);
+                    setLoad(false);
                 }
               })
     })
@@ -44,7 +54,8 @@ const Login = () => {
 
   return (
     <>
-        <div className="container">
+    {Load ? <Loading /> : null}
+     {<div className="container">
         <div className="row justify-content-center">
             <div className="col-sm-4">
                 <div className="card mt-5 mb-5">
@@ -76,6 +87,7 @@ const Login = () => {
             </div>
         </div>
     </div>
+      }  
     </>
   )
 }
