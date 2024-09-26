@@ -1,13 +1,15 @@
-import React from 'react'
+import React,{useState} from 'react'
 import AuthUser from '../pageAuth/AuthUser'
 import Config from '../Config'
 import { NavLink } from 'react-router-dom'
-
+import Loading from './Loading'
 const Navbar = () => {
 
   const {getToken,getLogout} = AuthUser()
+  const [Load, setLoad] = useState(false)
 
   const Logout = () =>{
+    setLoad(true)
      Config.getLogout('/logout')
             .then((response) => {
               console.log(response)
@@ -45,7 +47,8 @@ const Navbar = () => {
 
   return (
     <>
-<nav className="navbar navbar-expand-lg bg-body-tertiary " data-bs-theme="dark">
+    {Load ? <Loading/> : null}
+    {<nav className="navbar navbar-expand-lg bg-body-tertiary " data-bs-theme="dark">
   <div className="container">
     <a className="navbar-brand" href="#">SGN</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,7 +66,7 @@ const Navbar = () => {
     </div>
   </div>
 </nav>
-
+}
     </>
   )
 }
