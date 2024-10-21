@@ -13,4 +13,7 @@ export default {
     getEstudianteById:(id) => axios.get(`${base_api_url}/admin/estudiantes/${id}`),
     getEstudianteUpdate:(data,id) => axios.post(`${base_api_url}/admin/estudiantes/${id}`,data),
 
+    //Empresa
+    EmpresaRegister:(data) => axios.post(`${base_api_url}/admin/empresa`,data),
+    getEmpresaAll:(data) => axios.get(`${base_api_url}/admin/empresa`),
 }

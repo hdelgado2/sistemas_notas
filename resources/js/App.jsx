@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import LayoutsPublic from "../js/layouts/LayoutsPublic";
@@ -11,12 +11,31 @@ import Register from './pageAuth/Register';
 import Panel from './pageAdmin/Panel';
 import User from './pageAdmin/User';
 import EstudianteEdit from './pageAdmin/EstudianteEdit';
-
+import Loading from './components/Loading';
+import RegistrarEmpresa from './pageAdmin/Empresa/RegistrarEmpresa';
+import ListadoEmpresa from './pageAdmin/Empresa/ListadoEmpresa';
 
 const App = () => {
+  const [Load, setLoad] = useState(false)
+  useEffect(() => {
+   
+    setLoad(true)
+    
+    setInterval(() => {
+      setLoad(false)
+    }, 100);
+
+
+  }, [])
+  
+  
+  
+
   return (
+    
     <div>
-      <Router>
+      {Load ? <Loading/> : null}
+      {<Router>
         <Routes>
           <Route path='/' element={<LayoutsPublic/>}>
               <Route index element={<PageHome/>}/>
@@ -28,10 +47,12 @@ const App = () => {
                 <Route index element={<Panel/>}/>
                 <Route path='user' element={<User/>}/>
                 <Route path='user/edit/:id' element={<EstudianteEdit/>}/>
+                <Route path='listadosEmpresa' element={<ListadoEmpresa/>}></Route>
+                <Route path='registrarEmpresa' element={<RegistrarEmpresa/>}></Route>
               </Route>
           </Route>
         </Routes>
-      </Router>
+      </Router>}
     </div>
   )
 }

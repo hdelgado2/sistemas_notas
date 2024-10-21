@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\{
     EstudianteController,
     AuthController,
-    UserController
+    UserController,
+    EmpresaController
 };
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +34,7 @@ Route::prefix('v1')->group(function () {
 
         //rol Instituto puede ser profesor o Estudiante
         Route::apiResource('/admin/estudiantes',UserController::class);
-
+        Route::apiResource('/admin/empresa',EmpresaController::class);
     });
 });
 
