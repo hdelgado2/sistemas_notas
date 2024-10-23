@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Profesion extends Model
+class years extends Model
 {
     use HasFactory;
-
     protected $connection = 'pgsql';
-    protected $table = 'profesion';
-    protected $fillable = ['profesion'];
+    protected $table = 'year';
+    protected $fillable = ['año','num_year'];
 }

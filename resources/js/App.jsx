@@ -14,6 +14,7 @@ import EstudianteEdit from './pageAdmin/EstudianteEdit';
 import Loading from './components/Loading';
 import RegistrarEmpresa from './pageAdmin/Empresa/RegistrarEmpresa';
 import ListadoEmpresa from './pageAdmin/Empresa/ListadoEmpresa';
+import Listados from './pageAdmin/Configuraciones/años/Listados';
 
 const App = () => {
   const [Load, setLoad] = useState(false)
@@ -49,6 +50,7 @@ const App = () => {
                 <Route path='user/edit/:id' element={<EstudianteEdit/>}/>
                 <Route path='listadosEmpresa' element={<ListadoEmpresa/>}></Route>
                 <Route path='registrarEmpresa' element={<RegistrarEmpresa/>}></Route>
+                <Route path='years/listado' element={<Listados/>}></Route>
               </Route>
           </Route>
         </Routes>

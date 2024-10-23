@@ -18,7 +18,7 @@ const Sidebar = () => {
           <strong>Configuraciones</strong>
         </a>
         <ul className="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-          <li><a className="dropdown-item" href="#">Crear Años</a></li>
+          <li><a className="dropdown-item" href="#"><NavLink className={({isActive}) => (isActive ? ' nav-link active' : 'nav-link')} to={'/admin/years/listado'}>Años</NavLink></a></li>
           <li><a className="dropdown-item" href="#">Registrar Materias</a></li>
       
         </ul>

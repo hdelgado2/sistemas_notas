@@ -8,7 +8,7 @@ const LayoutsAdmin = () => {
 
   const {getToken} = AuthUser()
   const Navigate = useNavigate()
-
+ 
   useEffect(() => {
 
       if(getToken()){
