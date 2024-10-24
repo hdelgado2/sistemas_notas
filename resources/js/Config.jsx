@@ -16,4 +16,10 @@ export default {
     //Empresa
     EmpresaRegister:(data) => axios.post(`${base_api_url}/admin/empresa`,data),
     getEmpresaAll:(data) => axios.get(`${base_api_url}/admin/empresa`),
+
+
+    //Configuraciones
+    getAllYears:(data) => axios.get(`${base_api_url}/admin/Configuraciones/years`,data),
+    deleteYears:(id) => axios.delete(`${base_api_url}/admin/Configuraciones/years/${id}`)
+
 }

@@ -6,7 +6,8 @@ use App\Http\Controllers\Api\{
     EstudianteController,
     AuthController,
     UserController,
-    EmpresaController
+    EmpresaController,
+    AñoController
 };
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,12 @@ Route::prefix('v1')->group(function () {
         //rol Instituto puede ser profesor o Estudiante
         Route::apiResource('/admin/estudiantes',UserController::class);
         Route::apiResource('/admin/empresa',EmpresaController::class);
+
+        //Configuraciones 
+        Route::prefix('/admin/Configuraciones')->group(function () {
+            //modulo Año
+            Route::apiResource('years',AñoController::class);
+        });
     });
 });
 
