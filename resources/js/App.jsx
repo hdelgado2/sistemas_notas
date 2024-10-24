@@ -14,7 +14,7 @@ import EstudianteEdit from './pageAdmin/EstudianteEdit';
 import Loading from './components/Loading';
 import RegistrarEmpresa from './pageAdmin/Empresa/RegistrarEmpresa';
 import ListadoEmpresa from './pageAdmin/Empresa/ListadoEmpresa';
-import Listados from './pageAdmin/Configuraciones/años/Listados';
+import Listados from './pageAdmin/Configuraciones/anos/Listados';
 
 const App = () => {
   const [Load, setLoad] = useState(false)
